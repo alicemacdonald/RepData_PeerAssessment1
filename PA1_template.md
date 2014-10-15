@@ -1,8 +1,8 @@
 # Reproducible Research: Peer Assessment 1
 October 2014  
-\  
   
-
+  
+   
 
 ```r
 #Global variables and library references
@@ -15,8 +15,13 @@ fileName <- "activity.csv"
 rowCount <- 17568 #total rows in the dataset
 plotAxisColor = "#033c73"
 plotSymbolColor = "#1995dc"
+
+#Colors and formatting used for .html view
+
+#http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html
 ```
-\  
+  
+To view an html version of this document, click [here](http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html).
   
 #### 1. Loading and preprocessing the data
 
@@ -39,7 +44,7 @@ if(nrow(prelimData) != rowCount)
     stop("Error: full dataset not imported.")
 }
 ```
-\ 
+  
   
 #### 2. What is mean total number of steps taken per day?
 
@@ -62,7 +67,7 @@ hist(dailySummaryQ2[,2],
   
 The **average** number of steps taken per day is **10,767**  and the **median** number of steps taken per day is **10,765** (removing all NA values). 
 
-\  
+  
   
 #### 3. What is the average daily activity pattern?
 
@@ -83,11 +88,11 @@ plot(intervalSummaryQ3$interval,
 ```
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
-\ 
+  
  
 Interval **835** is the 5-minute interval that contains the maximum number of steps (averaged across all days).  
   
-\ 
+  
   
 #### 4. Imputing missing values
 
@@ -114,7 +119,7 @@ hist(dailySummaryQ4[,2],
 ![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
   
 The total number of missing values in this dataset is **2304**.  After imputation, the **average** number of steps taken per day is **10,767** and the **median** number of steps taken per day is **10,767** (compared to 10,767 and 10,765 before imputation).  
-\  
+  
    
 #### 5. Are there differences in activity patterns between weekdays and weekends?
 

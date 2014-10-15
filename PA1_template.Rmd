@@ -7,9 +7,9 @@ output:
     highlight: tango
     keep_md: true
 ---
-\  
   
-
+  
+   
 ``` {r message=FALSE}
 #Global variables and library references
 
@@ -21,8 +21,13 @@ fileName <- "activity.csv"
 rowCount <- 17568 #total rows in the dataset
 plotAxisColor = "#033c73"
 plotSymbolColor = "#1995dc"
+
+#Colors and formatting used for .html view
+
+#http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html
 ```
-\  
+  
+To view an html version of this document, click [here](http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html).
   
 #### 1. Loading and preprocessing the data
 ```{r echo=TRUE}
@@ -45,7 +50,7 @@ if(nrow(prelimData) != rowCount)
     stop("Error: full dataset not imported.")
 }
 ```
-\ 
+  
   
 #### 2. What is mean total number of steps taken per day?
 ```{r}
@@ -65,7 +70,7 @@ hist(dailySummaryQ2[,2],
   
 The **average** number of steps taken per day is **`r stepMean`**  and the **median** number of steps taken per day is **`r stepMedian`** (removing all NA values). 
 
-\  
+  
   
 #### 3. What is the average daily activity pattern?
 ``` {r}
@@ -83,11 +88,11 @@ plot(intervalSummaryQ3$interval,
      type="l",
      col=plotSymbolColor)
 ```
-\ 
+  
  
 Interval **`r maxInterval`** is the 5-minute interval that contains the maximum number of steps (averaged across all days).  
   
-\ 
+  
   
 #### 4. Imputing missing values
 ``` {r}
@@ -112,7 +117,7 @@ hist(dailySummaryQ4[,2],
 ```
   
 The total number of missing values in this dataset is **`r missingValues`**.  After imputation, the **average** number of steps taken per day is **`r stepMeanQ4`** and the **median** number of steps taken per day is **`r stepMedianQ4`** (compared to `r stepMean` and `r stepMedian` before imputation).  
-\  
+  
    
 #### 5. Are there differences in activity patterns between weekdays and weekends?
 ``` {r}
