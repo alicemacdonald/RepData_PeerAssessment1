@@ -1,16 +1,10 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-date: "October 2014"
-output: 
-  html_document:
-    theme: cerulean
-    highlight: tango
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
+October 2014  
 \  
   
 
-``` {r message=FALSE}
+
+```r
 #Global variables and library references
 
 library(plyr)
@@ -25,8 +19,8 @@ plotSymbolColor = "#1995dc"
 \  
   
 #### 1. Loading and preprocessing the data
-```{r echo=TRUE}
 
+```r
 if(!file.exists(paste0("./",fileName)))
 {
   unzip(paste0("./",downloadFile))
@@ -48,7 +42,8 @@ if(nrow(prelimData) != rowCount)
 \ 
   
 #### 2. What is mean total number of steps taken per day?
-```{r}
+
+```r
 dailySummaryQ2 <- ddply(prelimData,~date,summarise,TotalSteps=sum(steps))
 
 # calculate mean and median values
@@ -62,13 +57,16 @@ hist(dailySummaryQ2[,2],
                 ylab="Frequency (number of days)",
                 col=plotSymbolColor)
 ```
+
+![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
   
-The **average** number of steps taken per day is **`r stepMean`**  and the **median** number of steps taken per day is **`r stepMedian`** (removing all NA values). 
+The **average** number of steps taken per day is **10,767**  and the **median** number of steps taken per day is **10,765** (removing all NA values). 
 
 \  
   
 #### 3. What is the average daily activity pattern?
-``` {r}
+
+```r
 intervalSummaryQ3 <- ddply(prelimData,~interval,summarise,AverageSteps=mean(steps,na.rm=TRUE))
 maxInterval <- intervalSummaryQ3[
                     max(intervalSummaryQ3$AverageSteps) == 
@@ -83,14 +81,17 @@ plot(intervalSummaryQ3$interval,
      type="l",
      col=plotSymbolColor)
 ```
+
+![](./PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 \ 
  
-Interval **`r maxInterval`** is the 5-minute interval that contains the maximum number of steps (averaged across all days).  
+Interval **835** is the 5-minute interval that contains the maximum number of steps (averaged across all days).  
   
 \ 
   
 #### 4. Imputing missing values
-``` {r}
+
+```r
 # Imput missing values
 # For all NA values, I will use the average steps (across all days) for that 5 minute period
 
@@ -108,14 +109,16 @@ hist(dailySummaryQ4[,2],
      xlab="Total Steps per Day",
      ylab="Frequency (number of days)",
      col=plotSymbolColor)
-
 ```
+
+![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
   
-The total number of missing values in this dataset is **`r missingValues`**.  After imputation, the **average** number of steps taken per day is **`r stepMeanQ4`** and the **median** number of steps taken per day is **`r stepMedianQ4`** (compared to `r stepMean` and `r stepMedian` before imputation).  
+The total number of missing values in this dataset is **2304**.  After imputation, the **average** number of steps taken per day is **10,767** and the **median** number of steps taken per day is **10,767** (compared to 10,767 and 10,765 before imputation).  
 \  
    
 #### 5. Are there differences in activity patterns between weekdays and weekends?
-``` {r}
+
+```r
 imputedData$weekday <- weekdays(as.Date(imputedData$date))
 imputedData[!imputedData$weekday %in% c("Saturday","Sunday"),]$weekday <- "Weekday"
 imputedData[imputedData$weekday %in% c("Saturday","Sunday"),]$weekday <- "Weekend"
@@ -135,6 +138,7 @@ g <- g +
      theme_bw()
 
 g
-
 ```
+
+![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
