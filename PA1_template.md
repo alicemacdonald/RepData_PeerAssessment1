@@ -21,7 +21,8 @@ plotSymbolColor = "#1995dc"
 #http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html
 ```
   
-To view an html version of this document, click [here](http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html).
+To view an html version of this document which shows the Cerulean Bootstrap theme, click [here](http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html).  
+  
   
 #### 1. Loading and preprocessing the data
 

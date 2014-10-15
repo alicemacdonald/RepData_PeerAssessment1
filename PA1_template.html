@@ -67,6 +67,15 @@ code > span.er { font-weight: bold; }
 <h4 class="date"><em>October 2014</em></h4>
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#loading-and-preprocessing-the-data">1. Loading and preprocessing the data</a></li>
+<li><a href="#what-is-mean-total-number-of-steps-taken-per-day">2. What is mean total number of steps taken per day?</a></li>
+<li><a href="#what-is-the-average-daily-activity-pattern">3. What is the average daily activity pattern?</a></li>
+<li><a href="#imputing-missing-values">4. Imputing missing values</a></li>
+<li><a href="#are-there-differences-in-activity-patterns-between-weekdays-and-weekends">5. Are there differences in activity patterns between weekdays and weekends?</a></li>
+</ul>
+</div>
 
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Global variables and library references</span>
 
@@ -82,7 +91,7 @@ plotSymbolColor =<span class="st"> &quot;#1995dc&quot;</span>
 <span class="co">#Colors and formatting used for .html view</span>
 
 <span class="co">#http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html</span></code></pre>
-<p>To view an html version of this document, click <a href="http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html">here</a>.</p>
+<p>To view an html version of this document which shows the Cerulean Bootstrap theme, click <a href="http://htmlpreview.github.io/?https://github.com/alicemacdonald/RepData_PeerAssessment1/blob/master/PA1_template.html">here</a>.</p>
 <div id="loading-and-preprocessing-the-data" class="section level4">
 <h4>1. Loading and preprocessing the data</h4>
 <pre class="sourceCode r"><code class="sourceCode r">if(!<span class="kw">file.exists</span>(<span class="kw">paste0</span>(<span class="st">&quot;./&quot;</span>,fileName)))
